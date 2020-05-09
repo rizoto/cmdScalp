@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		70E8063F24650F83003E80DD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8063E24650F83003E80DD /* main.swift */; };
+		70E8064624651434003E80DD /* Scalp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8064524651434003E80DD /* Scalp.swift */; };
+		70E8064924651574003E80DD /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 70E8064824651574003E80DD /* ArgumentParser */; };
+		70E8065024652CBD003E80DD /* TradingToolBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E8064B246515A0003E80DD /* TradingToolBox.framework */; };
+		70E8065124652CBD003E80DD /* TradingToolBox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70E8064B246515A0003E80DD /* TradingToolBox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,11 +24,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		70E8065224652CBD003E80DD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				70E8065124652CBD003E80DD /* TradingToolBox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		70E8063B24650F83003E80DD /* cmdScalp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cmdScalp; sourceTree = BUILT_PRODUCTS_DIR; };
 		70E8063E24650F83003E80DD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		70E8064524651434003E80DD /* Scalp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scalp.swift; sourceTree = "<group>"; };
+		70E8064B246515A0003E80DD /* TradingToolBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TradingToolBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E8065024652CBD003E80DD /* TradingToolBox.framework in Frameworks */,
+				70E8064924651574003E80DD /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +62,7 @@
 			children = (
 				70E8063D24650F83003E80DD /* cmdScalp */,
 				70E8063C24650F83003E80DD /* Products */,
+				70E8064A246515A0003E80DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +78,17 @@
 			isa = PBXGroup;
 			children = (
 				70E8063E24650F83003E80DD /* main.swift */,
+				70E8064524651434003E80DD /* Scalp.swift */,
 			);
 			path = cmdScalp;
+			sourceTree = "<group>";
+		};
+		70E8064A246515A0003E80DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70E8064B246515A0003E80DD /* TradingToolBox.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,12 +101,16 @@
 				70E8063724650F83003E80DD /* Sources */,
 				70E8063824650F83003E80DD /* Frameworks */,
 				70E8063924650F83003E80DD /* CopyFiles */,
+				70E8065224652CBD003E80DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = cmdScalp;
+			packageProductDependencies = (
+				70E8064824651574003E80DD /* ArgumentParser */,
+			);
 			productName = cmdScalp;
 			productReference = 70E8063B24650F83003E80DD /* cmdScalp */;
 			productType = "com.apple.product-type.tool";
@@ -98,7 +131,7 @@
 				};
 			};
 			buildConfigurationList = 70E8063624650F83003E80DD /* Build configuration list for PBXProject "cmdScalp" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -106,6 +139,9 @@
 				Base,
 			);
 			mainGroup = 70E8063224650F83003E80DD;
+			packageReferences = (
+				70E8064724651574003E80DD /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 70E8063C24650F83003E80DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -121,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70E8063F24650F83003E80DD /* main.swift in Sources */,
+				70E8064624651434003E80DD /* Scalp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,9 +280,12 @@
 		70E8064324650F83003E80DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB887LPNL4;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				LD_RUNPATH_SEARCH_PATHS = ./;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -254,9 +294,12 @@
 		70E8064424650F83003E80DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB887LPNL4;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				LD_RUNPATH_SEARCH_PATHS = ./;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -284,6 +327,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		70E8064724651574003E80DD /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		70E8064824651574003E80DD /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70E8064724651574003E80DD /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 70E8063324650F83003E80DD /* Project object */;
 }

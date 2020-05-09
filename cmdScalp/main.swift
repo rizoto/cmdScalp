@@ -6,7 +6,5 @@
 //  Copyright © 2020 Lubor Kolacny. All rights reserved.
 //
 
-import Foundation
-
-print("Hello, World!")
+Scalp.main()
 
